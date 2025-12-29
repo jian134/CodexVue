@@ -1,0 +1,106 @@
+[
+    {
+        "filename": "airpods-4.png",
+        "path": "images/products/airpods-4.png",
+        "name": "AirPods 4",
+        "category": "耳机",
+        "description": "第四代 AirPods 真无线耳机，采用全新设计，提供卓越的音质体验和舒适的佩戴感受。",
+        "alt": "AirPods 4 真无线耳机产品图",
+        "features": [
+            "真无线设计",
+            "高品质音质",
+            "长续航时间",
+            "快速连接"
+        ]
+    },
+    {
+        "filename": "airpods-max.png",
+        "path": "images/products/airpods-max.png",
+        "name": "AirPods Max",
+        "category": "耳机",
+        "description": "AirPods Max 头戴式无线耳机，采用优质材料打造，提供专业级音质和主动降噪功能。",
+        "alt": "AirPods Max 头戴式无线耳机产品图",
+        "features": [
+            "头戴式设计",
+            "主动降噪",
+            "空间音频",
+            "高品质音质",
+            "舒适佩戴"
+        ]
+    },
+    {
+        "filename": "airpods-pro-3.png",
+        "path": "images/products/airpods-pro-3.png",
+        "name": "AirPods Pro 3",
+        "category": "耳机",
+        "description": "第三代 AirPods Pro 真无线降噪耳机，配备自适应降噪技术和空间音频功能，带来沉浸式聆听体验。",
+        "alt": "AirPods Pro 3 真无线降噪耳机产品图",
+        "features": [
+            "主动降噪",
+            "自适应降噪",
+            "空间音频",
+            "通透模式",
+            "防汗防水"
+        ]
+    },
+    {
+        "filename": "iphone_16.jpg",
+        "path": "images/products/iphone_16.jpg",
+        "name": "iPhone 16",
+        "category": "手机",
+        "description": "iPhone 16 智能手机，搭载最新芯片，配备先进的摄像头系统和出色的显示效果。",
+        "alt": "iPhone 16 智能手机产品图",
+        "features": [
+            "高性能处理器",
+            "先进摄像头系统",
+            "超视网膜显示屏",
+            "5G 连接",
+            "长续航"
+        ]
+    },
+    {
+        "filename": "iphone_17.jpg",
+        "path": "images/products/iphone_17.jpg",
+        "name": "iPhone 17",
+        "category": "手机",
+        "description": "iPhone 17 智能手机，采用全新设计语言，性能更强大，拍照更出色，体验更流畅。",
+        "alt": "iPhone 17 智能手机产品图",
+        "features": [
+            "最新处理器",
+            "专业级摄影",
+            "高刷新率屏幕",
+            "快速充电",
+            "5G 网络"
+        ]
+    },
+    {
+        "filename": "iphone_17pro.jpg",
+        "path": "images/products/iphone_17pro.jpg",
+        "name": "iPhone 17 Pro",
+        "category": "手机",
+        "description": "iPhone 17 Pro 专业版智能手机，面向专业用户，提供更强大的性能和更专业的摄影功能。",
+        "alt": "iPhone 17 Pro 专业版智能手机产品图",
+        "features": [
+            "专业级处理器",
+            "三摄系统",
+            "ProMotion 显示屏",
+            "专业摄影模式",
+            "钛金属材质"
+        ]
+    },
+    {
+        "filename": "iphone_air.jpg",
+        "path": "images/products/iphone_air.jpg",
+        "name": "iPhone Air",
+        "category": "手机",
+        "description": "iPhone Air 轻量版智能手机，采用轻薄设计，在保持高性能的同时提供更便携的使用体验。",
+        "alt": "iPhone Air 轻量版智能手机产品图",
+        "features": [
+            "轻薄设计",
+            "高性能",
+            "出色显示",
+            "长续航",
+            "便携性"
+        ]
+    }
+]
