@@ -143,8 +143,8 @@
 
 <script setup>
 import { onMounted, ref, computed } from "vue";
-import productsDesc from "../images/products-desc.json";
-import categoriesData from "../images/categories.json";
+import productsDesc from "./data/products-desc.json";
+import categoriesData from "./data/categories.json";
 
 const wechatId = "jk450127775";
 const copyState = ref("");

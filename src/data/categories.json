@@ -1,0 +1,24 @@
+[
+    {
+        "title": "耳机",
+        "desc": "真无线、头戴、电竞、降噪等热门款式。",
+        "media": "HEADPHONE",
+        "chips": [
+            "现货",
+            "爆款",
+            "多色"
+        ],
+        "path": "images/products/airpods-4.png"
+    },
+    {
+        "title": "配件",
+        "desc": "充电器、数据线、磁吸配件、保护壳等。",
+        "media": "ACCESSORY",
+        "chips": [
+            "配套",
+            "通用",
+            "加购"
+        ],
+        "path": "images/products/airpods-4.png"
+    }
+]
