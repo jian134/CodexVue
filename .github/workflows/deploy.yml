@@ -32,8 +32,11 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
-
+        run: npm ci
+        
+      - name: Fix permissions # 增加这一步
+        run: chmod +x node_modules/.bin/vite
+        
       - name: Build
         run: npm run build
 
