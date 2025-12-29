@@ -1,110 +1,183 @@
-﻿<template>
+<template>
   <div class="page">
-    <BlogHero
-      :query="query"
-      :count="filteredPosts.length"
-      @update-query="query = $event"
-      @add-post="addPost"
-    />
+    <header class="hero">
+      <div class="hero__top">
+        <div class="hero__brand">
+          <span class="brand-pill">广告位招租</span>
+          <p class="brand-sub">华强北卖家微名片</p>
+        </div>
+      </div>
+      <h1>明亮橘色 · 科技感展示页</h1>
+      <p class="hero__lead">
+        耳机与配件集中展示，信息清晰、节奏利落，适合直接分享到客户群。
+      </p>
+      <div class="hero__cta">
+        <button class="btn btn--primary" @click="copyWechat">复制微信号</button>
+        <div class="cta-meta">
+          <span>微信号</span>
+          <strong>{{ wechatId }}</strong>
+          <em v-if="copyState">{{ copyState }}</em>
+        </div>
+      </div>
+    </header>
 
-    <main class="grid">
-      <PostCard
-        v-for="post in filteredPosts"
-        :key="post.id"
-        :post="post"
-        :format-date="formatDate"
-        @like="toggleLike(post)"
-        @tag="addQuery"
-      />
-    </main>
+    <section class="section">
+      <div class="section__head">
+        <h2>主营类别</h2>
+        <p>占位图便于后续替换为真实产品图。</p>
+      </div>
+      <div class="cards">
+        <article v-for="item in categories" :key="item.title" class="card">
+          <div class="card__media">
+            <span>{{ item.media }}</span>
+          </div>
+          <div class="card__body">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.desc }}</p>
+            <div class="chip-row">
+              <span v-for="chip in item.chips" :key="chip" class="chip">#{{ chip }}</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section panel">
+      <div class="section__head">
+        <h2>热销方向</h2>
+        <p>快速传达主推卖点。</p>
+      </div>
+      <div class="grid">
+        <div v-for="spot in hotSpots" :key="spot.title" class="spot">
+          <div class="spot__top">
+            <span class="spot__tag">{{ spot.tag }}</span>
+            <strong>{{ spot.title }}</strong>
+          </div>
+          <p>{{ spot.desc }}</p>
+          <span class="spot__meta">{{ spot.meta }}</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact">
+      <div class="contact__card">
+        <div>
+          <h2>加微信拿货</h2>
+          <p>复制微信号后直接搜索添加，快速获取报价。</p>
+        </div>
+        <div class="contact__action">
+          <strong>{{ wechatId }}</strong>
+          <button class="btn btn--ghost" @click="copyWechat">一键复制</button>
+        </div>
+        <small v-if="copyState">{{ copyState }}</small>
+      </div>
+    </section>
 
     <footer class="footer">
-      <p>Made with Vue 3 · 自己的节奏，自己的故事。</p>
+      <div ref="waveRef" class="wave" aria-hidden="true">
+        <span class="wave__layer wave__layer--one"></span>
+        <span class="wave__layer wave__layer--two"></span>
+        <span class="wave__layer wave__layer--three"></span>
+      </div>
+      <p>Shenzhen HQB · Tech Supply</p>
     </footer>
   </div>
 </template>
 
 <script setup>
-import { computed, ref } from "vue";
-import BlogHero from "./components/BlogHero.vue";
-import PostCard from "./components/PostCard.vue";
+import { onMounted, ref } from "vue";
 
-const query = ref("");
-const posts = ref([
-  {
-    id: 1,
-    title: "写给三个月后的自己",
-    excerpt: "留一点空白给未来，让生活不必总是解释。",
-    tags: ["随笔", "生活"],
-    date: "2025-02-18",
-    likes: 12,
-  },
-  {
-    id: 2,
-    title: "Vue 3 让我更快进入状态",
-    excerpt: "组合式 API 让我写组件像写故事，结构清晰又自然。",
-    tags: ["Vue", "前端"],
-    date: "2025-02-26",
-    likes: 27,
-  },
-  {
-    id: 3,
-    title: "雨后的城市",
-    excerpt: "潮湿的空气里有一点薄荷味，街灯把世界按下慢放。",
-    tags: ["城市", "记录"],
-    date: "2025-03-04",
-    likes: 9,
-  },
-]);
+const wechatId = "jk450127775";
+const copyState = ref("");
+const waveRef = ref(null);
 
-const filteredPosts = computed(() => {
-  const keyword = query.value.trim().toLowerCase();
-  if (!keyword) {
-    return posts.value;
-  }
-  return posts.value.filter((post) => {
-    const titleMatch = post.title.toLowerCase().includes(keyword);
-    const tagMatch = post.tags.some((tag) => tag.toLowerCase().includes(keyword));
-    return titleMatch || tagMatch;
-  });
+const categories = [
+  {
+    title: "耳机",
+    desc: "真无线、头戴、电竞、降噪等热门款式。",
+    media: "HEADPHONE",
+    chips: ["现货", "爆款", "多色"],
+  },
+  {
+    title: "配件",
+    desc: "充电器、数据线、磁吸配件、保护壳等。",
+    media: "ACCESSORY",
+    chips: ["配套", "通用", "加购"],
+  },
+];
+
+const hotSpots = [
+  {
+    tag: "HOT",
+    title: "降噪真无线",
+    desc: "通勤高频需求，适合主推引流。",
+    meta: "多价位区间可选",
+  },
+  {
+    tag: "NEW",
+    title: "电竞头戴",
+    desc: "空间音效 + 麦克风套装。",
+    meta: "主打沉浸体验",
+  },
+  {
+    tag: "FAST",
+    title: "快充配件",
+    desc: "出货快、需求高，适合加购。",
+    meta: "多协议可选",
+  },
+];
+
+onMounted(() => {
+  const media = window.matchMedia("(prefers-color-scheme: dark)");
+  const applyTheme = () => {
+    document.documentElement.dataset.theme = media.matches ? "dark" : "light";
+  };
+  applyTheme();
+  media.addEventListener?.("change", applyTheme);
+
+  let rafId = 0;
+  let t = 0;
+  const animateWave = () => {
+    t += 0.8;
+    if (waveRef.value) {
+      waveRef.value.style.setProperty("--wave-shift", `${t}px`);
+    }
+    rafId = requestAnimationFrame(animateWave);
+  };
+  rafId = requestAnimationFrame(animateWave);
+
+  return () => {
+    media.removeEventListener?.("change", applyTheme);
+    cancelAnimationFrame(rafId);
+  };
 });
 
-function addPost(payload) {
-  const title = payload.title.trim();
-  const excerpt = payload.excerpt.trim();
-  if (!title || !excerpt) {
-    return;
+async function copyWechat() {
+  copyState.value = "";
+  try {
+    await navigator.clipboard.writeText(wechatId);
+    copyState.value = "已复制";
+  } catch (error) {
+    const copied = fallbackCopy(wechatId);
+    copyState.value = copied ? "已复制" : "复制失败，请手动添加";
   }
-  const tags = payload.tags
-    .split(",")
-    .map((tag) => tag.trim())
-    .filter(Boolean);
-  posts.value.unshift({
-    id: Date.now(),
-    title,
-    excerpt,
-    tags: tags.length ? tags : ["随笔"],
-    date: today(),
-    likes: 0,
-  });
-  query.value = "";
+  if (copyState.value === "已复制") {
+    setTimeout(() => {
+      copyState.value = "";
+    }, 2000);
+  }
 }
 
-function toggleLike(post) {
-  post.likes += 1;
-}
-
-function addQuery(tag) {
-  query.value = tag;
-}
-
-function today() {
-  const now = new Date();
-  return now.toISOString().slice(0, 10);
-}
-
-function formatDate(value) {
-  const [year, month, day] = value.split("-");
-  return `${year} / ${month} / ${day}`;
+function fallbackCopy(text) {
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "absolute";
+  textarea.style.left = "-9999px";
+  document.body.appendChild(textarea);
+  textarea.select();
+  const ok = document.execCommand("copy");
+  document.body.removeChild(textarea);
+  return ok;
 }
 </script>
