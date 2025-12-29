@@ -1,0 +1,261 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Space+Grotesk:wght@400;500;600&display=swap");
+
+:root {
+  color-scheme: light;
+  --ink: #0f172a;
+  --muted: #475569;
+  --card: #ffffff;
+  --accent: #ff6b3d;
+  --accent-dark: #d94f26;
+  --leaf: #0ea5a3;
+  --bg-1: #fff1e6;
+  --bg-2: #ffe4f0;
+  --stroke: rgba(15, 23, 42, 0.12);
+  --shadow: 0 22px 50px rgba(15, 23, 42, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, var(--bg-1), transparent 55%),
+    radial-gradient(circle at bottom left, var(--bg-2), transparent 60%),
+    #fdf7f1;
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px 64px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+  align-items: stretch;
+}
+
+.hero__content {
+  padding: 24px 0;
+}
+
+.eyebrow {
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin-bottom: 18px;
+  font-size: 1rem;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--stroke);
+  background: #fff;
+  font-size: 0.95rem;
+}
+
+.pill {
+  background: #0f172a;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+
+.hero__panel {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--stroke);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__panel::after {
+  content: "";
+  position: absolute;
+  inset: -40% 60% 40% -10%;
+  background: linear-gradient(135deg, rgba(14, 165, 163, 0.2), transparent);
+  z-index: 0;
+}
+
+.hero__panel h2 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+form {
+  display: grid;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+input,
+textarea {
+  border-radius: 12px;
+  border: 1px solid var(--stroke);
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background: #fff;
+}
+
+button {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 20px rgba(255, 107, 61, 0.25);
+}
+
+.grid {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 18px;
+  border: 1px solid var(--stroke);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+  display: grid;
+  gap: 10px;
+  animation: floatUp 0.6s ease both;
+}
+
+.card:nth-child(2n) {
+  animation-delay: 0.08s;
+}
+
+.card:nth-child(3n) {
+  animation-delay: 0.16s;
+}
+
+.card__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.date {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+h3 {
+  margin-top: 6px;
+  font-size: 1.1rem;
+}
+
+.excerpt {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.like {
+  background: #fff5f1;
+  color: var(--accent-dark);
+  border: 1px solid rgba(217, 79, 38, 0.2);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 999px;
+}
+
+.taglist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  background: rgba(14, 165, 163, 0.1);
+  color: var(--leaf);
+  border: 1px solid rgba(14, 165, 163, 0.2);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+
+.footer {
+  margin-top: 48px;
+  text-align: center;
+  color: var(--muted);
+}
+
+@keyframes floatUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 720px) {
+  .page {
+    padding: 30px 16px 48px;
+  }
+
+  .search {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero__panel {
+    order: -1;
+  }
+}
