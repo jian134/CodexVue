@@ -37,10 +37,6 @@ jobs:
       - name: Fix permissions # 增加这一步
         run: chmod +x node_modules/.bin/vite
       
-      - name: Compress Images
-        uses: calibreapp/image-actions@main
-        with:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}      
       
       - name: Build
         run: npm run build
